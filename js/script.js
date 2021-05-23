@@ -30,7 +30,7 @@ quotes=[
     {quote: "Well done is better than well said.", source:"Benjamin Franklin" },
     {quote: "The root of suffering is attachment. ", source:"Buddha" },
     {quote:"Real estate is an imperishable asset, ever increasing in value. It is the most solid security that human ingenuity has devised. It is the basis of all security and about the only indestructible security.",source:"Russell Sage",profession:"financier, railroad executive and Whig politician from New York, United States."},
-    {quote:"I love it when a plan comes together.",source:" Colonel John “Hannibal” Smith",date:"January 23 1983",citation:"The A-Team" }
+    {quote:"I love it when a plan comes together.",source:" Colonel John “Hannibal” Smith",year:"January 23 1983",citation:"The A-Team" }
 ];
 
 
@@ -47,24 +47,23 @@ function printQuote(){
   let randomQuote=getRandomQuote();
   let stringHtml=`<p class="quote">${randomQuote.quote}</p>
   <p class="source">${randomQuote.source}`;
- //if the object stored on randomQuote has a date propertie , the value of date will be concatenated to the stringHtml
+ //if the object stored on randomQuote has a year propertie , the value of year will be concatenated to the stringHtml
   for(let key in randomQuote){
-    if(key==="date"){
-      stringHtml+=`<span class="year">${randomQuote.date} </span>`;
+    if(key==="year"){
+      stringHtml+=`<span class="year">${randomQuote.year} </span>`;
     }
- //if the object stored on randomQuote has a citation propertie , the value of date will be concatenated to the stringHtml
+ //if the object stored on randomQuote has a citation propertie , the value of year will be concatenated to the stringHtml
     if(key==="citation"){
       stringHtml+=`<span class="year">${randomQuote.citation} </span>`;
     }  
- //if the object stored on randomQuote has a profession propertie , the value of date will be concatenated to the stringHtml
+ //if the object stored on randomQuote has a profession propertie , the value of year will be concatenated to the stringHtml
     if(key==="profession"){
       stringHtml+=`<span class="year">${randomQuote.profession} </span>`;
     }  
   }
   stringHtml+=`</p>`;
-  //function to display a new quote every 5seconds
-  setTimeout(printQuote,5000);
   
+
   return document.getElementById('quote-box').innerHTML = stringHtml;
 } 
 
@@ -76,3 +75,5 @@ function printQuote(){
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 //every time the user opens the webpage it will display a random quote
 printQuote();
+//function to display a new quote every 5seconds
+setTimeout(printQuote,5000);
